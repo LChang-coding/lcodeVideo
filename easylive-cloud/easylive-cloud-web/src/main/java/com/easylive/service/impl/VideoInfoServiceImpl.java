@@ -247,4 +247,8 @@ public class VideoInfoServiceImpl implements VideoInfoService {
 			}
 		});
 	}
+	@Override
+	public void updateCountInfo(String videoId, String field, Integer changeCount) {
+		videoInfoMapper.updateCountInfo(videoId, field, changeCount);
+	}
 }

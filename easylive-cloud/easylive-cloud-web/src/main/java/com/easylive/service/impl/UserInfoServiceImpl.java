@@ -329,6 +329,15 @@ if(userInfo==null){
 		return tokenUserInfoDto;
 	}
 
+	public Integer updateCoinCountInfo(String userId, Integer changeCount) {
+		if (changeCount < 0) {
+			UserInfo userInfo = getUserInfoByUserId(userId);
+			if (userInfo.getCurrentCoinCount() + changeCount < 0) {
+				changeCount = -userInfo.getCurrentCoinCount();
+			}
+		}
+		return this.userInfoMapper.updateCoinCountInfo(userId, changeCount);
+	}
 
 	/**
 	 * 根据NickName删除

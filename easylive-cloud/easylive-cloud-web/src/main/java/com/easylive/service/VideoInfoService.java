@@ -5,6 +5,7 @@ import com.easylive.entity.query.VideoInfoQuery;
 import com.easylive.entity.vo.PaginationResultVO;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
@@ -75,4 +76,6 @@ public interface VideoInfoService {
 	void deleteVideo(@NotEmpty String videoId, String userId);
 
 	void addReadCount(String videoId);
+
+    void updateCountInfo(@NotEmpty String videoId, @NotEmpty String field, @NotNull Integer changeCount);
 }

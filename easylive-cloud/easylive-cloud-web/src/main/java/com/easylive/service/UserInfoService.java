@@ -117,6 +117,6 @@ public interface UserInfoService {
 	void updateUserInfo(UserInfo userInfo, TokenUserInfoDto tokenUserInfoDto);
 
     UserCountInfoDto getUserCountInfo(String userId);
-
+	Integer updateCoinCountInfo(String userId, Integer changeCount);
 
 }

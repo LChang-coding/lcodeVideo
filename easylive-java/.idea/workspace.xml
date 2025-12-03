@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94fe5432-59d6-4546-aa5a-6d9cb809bbf4" name="更改" comment="BzhanHouDuan">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.path_IS_UNDEFINED/logs/appname_IS_UNDEFINED.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.path_IS_UNDEFINED/logs/appname_IS_UNDEFINED.log" afterDir="false" />
-    </list>
+    <list default="true" id="94fe5432-59d6-4546-aa5a-6d9cb809bbf4" name="更改" comment="BzhanHouDuan" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +27,7 @@
         <option name="title" value="Current Branch" />
       </GitPushTagMode>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -326,6 +323,7 @@
       <workItem from="1763395774754" duration="100000" />
       <workItem from="1763459810795" duration="91000" />
       <workItem from="1764066112948" duration="2010000" />
+      <workItem from="1764728835033" duration="263000" />
     </task>
     <task id="LOCAL-00001" summary="HouDuan">
       <option name="closed" value="true" />
