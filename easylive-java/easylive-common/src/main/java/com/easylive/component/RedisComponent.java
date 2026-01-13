@@ -1,6 +1,7 @@
 package com.easylive.component;
 
 import com.easylive.entity.config.AppConfig;
+import com.easylive.entity.config.RabbitMQConfig;
 import com.easylive.entity.dto.SysSettingDto;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.constants.Constants; // 常量类
@@ -13,6 +14,9 @@ import com.easylive.redis.RedisUtils; // Redis 工具
 import com.easylive.utils.DateUtil;
 import com.easylive.utils.StringTools;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -22,6 +26,8 @@ import java.util.*;
 
 @Component // Spring 组件
 public class RedisComponent {
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
     @Resource
     private RedisUtils redisUtils; // 注入 Redis 工具
     @Resource
@@ -122,10 +128,38 @@ return uploadId;
         // 2. 设置过期时间为 7 天，防止因消费失败导致脏数据永久残留
         redisUtils.lpushAll(key, fileIdList, Constants.REDIS_KEY_EXPIRES_ONE_DAY * 7);
     }
-    public void addFile2TransferQueue(List<VideoInfoFilePost> fileList) {
+  /*  public void addFile2TransferQueue(List<VideoInfoFilePost> fileList) {
         // 将任务批量左插到全局转码队列，不设置过期时间，永久保留直到被消费
         redisUtils.lpushAll(Constants.REDIS_KEY_QUEUE_TRANSFER, fileList, 0);
-    }
+    }*/
+//    // 伪代码演示 redisUtils.lpushAll 的内部逻辑
+//public void lpushAll(String key, List<Object> list) {
+//    for (Object item : list) {
+//        // 它是把 List 里的每一个元素，单独作为一条数据推入 Redis 列表
+//        redisTemplate.opsForList().leftPush(key, item);
+//    }
+//}
+  public void addFile2TransferQueue(List<VideoInfoFilePost> fileList) {
+      if (fileList == null || fileList.isEmpty()) {
+          return;
+      }
+
+      // 定义一个路由键，必须符合 Config 中 "video.#" 的规则
+      String routingKey = "video.transfer";
+
+      // 【修正点1】遍历 List，逐个发送消息
+      for (VideoInfoFilePost file : fileList) {
+          // 【修正点2】第二个参数是 RoutingKey，不是 QueueName
+          rabbitTemplate.convertAndSend(
+                  RabbitMQConfig.EXCHANGE_NAME,
+                  routingKey,
+                  file
+          );
+      }
+
+      // 【修正点3】移除了 RabbitAdmin 查询逻辑，提高性能
+      System.out.println("成功发送转码任务数量：" + fileList.size());
+  }
     public void saveSettingDto(SysSettingDto sysSettingDto) {
         redisUtils.set(Constants.REDIS_KEY_SYS_SETTING, sysSettingDto);
     }

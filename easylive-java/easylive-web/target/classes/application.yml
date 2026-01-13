@@ -1,6 +1,11 @@
 server:
   port: 7071
 spring:
+  rabbitmq:
+    host: 127.0.0.1  # RabbitMQ服务器地址
+    port: 5672          # 通信端口（默认5672）
+    username: admin     # 登录用户名
+    password: password  # 登录密码
   servlet:
     multipart:
       max-file-size: 10MB

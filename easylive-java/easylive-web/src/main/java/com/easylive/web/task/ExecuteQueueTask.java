@@ -43,7 +43,7 @@ public class ExecuteQueueTask {
     @Resource
     private EsSearchComponent esSearchComponent;
 
-    @PostConstruct
+  /*  @PostConstruct
     public void consumeTransferFileQueue() {
         executorService.execute(() -> {
             while (isRunning) { // 1. 使用标志位替代 true
@@ -66,7 +66,7 @@ public class ExecuteQueueTask {
                 }
             }
         });
-    }
+    }*/
 
     @PostConstruct
     public void consumeVideoPlayQueue() {
