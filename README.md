@@ -11,8 +11,11 @@
 <img width="2263" height="897" alt="image" src="https://github.com/user-attachments/assets/0f6c71ac-2c3d-47bb-a48c-ee001c66819f" />
 
 压测情况：
-描述设备：
+
+在我的本机进行压测：
     机器搭载了 24 核的 i9 处理器和 32GB 内存。
+    
+主要是对于三个常用接口的压测：
 
 主页加载视频接口压测：
 <img width="2973" height="107" alt="download" src="https://github.com/user-attachments/assets/d4a0cc58-bc5d-4e16-8e03-9a2ced576c15" />
