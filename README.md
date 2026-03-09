@@ -8,6 +8,8 @@
 <img width="1525" height="1542" alt="image" src="https://github.com/user-attachments/assets/2506c81d-9339-4a5f-9d4d-280cba700eb2" />
 <img width="1663" height="795" alt="image" src="https://github.com/user-attachments/assets/46eec47d-4694-48e2-ba67-25864760df28" />
 <img width="1498" height="835" alt="image" src="https://github.com/user-attachments/assets/fb7cc769-9787-41f5-9a58-fab2aa4ec5de" />
+<img width="2263" height="897" alt="image" src="https://github.com/user-attachments/assets/0f6c71ac-2c3d-47bb-a48c-ee001c66819f" />
+
 压测情况：
 描述设备：
     机器搭载了 24 核的 i9 处理器和 32GB 内存。
