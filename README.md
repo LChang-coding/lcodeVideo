@@ -18,7 +18,7 @@
 搜素接口测试：
 
 <img width="2962" height="111" alt="download" src="https://github.com/user-attachments/assets/c16236fd-749e-40b9-a0bf-50880d2e5d9e" />
-200个线程持续五分钟的压测单机节点抗住了300的qps 200ms的延迟 800线程压测5分钟如果是600ms延迟的话 qps到了700
+40个线程持续五分钟的压测单机节点抗住了300的qps 200ms的延迟 80线程压测5分钟如果是600ms延迟的话 qps到了700
 
 播放接口测试（针对某一视频的单一ts片段的播放）：
 <img width="2991" height="168" alt="download" src="https://github.com/user-attachments/assets/41337fcf-05a6-400e-bca2-151f63fd78a8" />
